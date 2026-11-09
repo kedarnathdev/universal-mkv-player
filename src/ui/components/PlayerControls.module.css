@@ -1,0 +1,239 @@
+.controls {
+  padding: 0 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.seekBar {
+  padding: 8px 0;
+  cursor: pointer;
+}
+.seekTrack {
+  position: relative;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  overflow: visible;
+}
+.seekFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--accent-light);
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+.seekThumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+  transition: transform 0.15s;
+}
+.seekBar:hover .seekThumb { transform: translate(-50%, -50%) scale(1); }
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.left, .right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color var(--transition), background var(--transition);
+}
+.iconBtn:hover { color: white; background: rgba(255,255,255,0.1); }
+
+.textBtn {
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 5px 8px;
+}
+.active { color: var(--accent-light) !important; }
+
+.volumeGroup {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.volumeBar {
+  width: 70px;
+  padding: 6px 0;
+  cursor: pointer;
+}
+.volumeTrack {
+  position: relative;
+  height: 3px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+}
+.volumeFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: white;
+  border-radius: 2px;
+}
+.volumeThumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: white;
+}
+
+.time {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.75);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  margin-left: 4px;
+}
+
+.menuWrapper {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: 0;
+  min-width: 240px;
+  background: #1e1e2e;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  z-index: 500;
+}
+
+.settingsMenu {
+  min-width: 300px;
+}
+
+.menuTitle {
+  padding: 10px 14px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.menuItem {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.875rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.menuItem:hover { background: rgba(255,255,255,0.08); }
+
+.menuItemActive { color: var(--accent-light); }
+
+.menuItemCheck {
+  width: 16px;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  color: var(--accent-light);
+}
+
+.menuItemLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trackLang {
+  font-weight: 500;
+}
+
+.trackMeta {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.menuDivider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 4px 0;
+}
+
+.settingRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.75);
+}
+.settingRow label {
+  min-width: 110px;
+  font-size: 0.8rem;
+}
+.settingRow input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent-light);
+}
+.settingRow span {
+  min-width: 36px;
+  text-align: right;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.numberInput {
+  width: 70px;
+  padding: 3px 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  color: white;
+  font-size: 0.8rem;
+}
+
+.select {
+  padding: 3px 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  color: white;
+  font-size: 0.8rem;
+}
+
+.hiddenInput {
+  display: none;
+}

@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  mkv-player:
+    build: .
+    container_name: mkv-player
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
