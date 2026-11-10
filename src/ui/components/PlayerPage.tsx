@@ -35,6 +35,7 @@ const DEFAULT_SETTINGS = {
 
 export default function PlayerPage({ videoUrl, subtitleUrl, onBack }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
   const engineRef = useRef<PlaybackEngine | null>(null)
   const subtitleMgrRef = useRef(new SubtitleManager())
   const containerRef = useRef<HTMLDivElement>(null)
@@ -127,7 +128,8 @@ export default function PlayerPage({ videoUrl, subtitleUrl, onBack }: Props) {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const engine = new PlaybackEngine(videoUrl, canvas, handleEvent)
+    const videoEl = videoRef.current
+    const engine = new PlaybackEngine(videoUrl, canvas, videoEl, handleEvent)
     engineRef.current = engine
     engine.initialize()
 
@@ -324,6 +326,11 @@ export default function PlayerPage({ videoUrl, subtitleUrl, onBack }: Props) {
           ref={canvasRef}
           className={styles.canvas}
           style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+        />
+        <video
+          ref={videoRef}
+          playsInline
+          style={{ display: 'none' }}
         />
 
         {/* Subtitle overlay */}
